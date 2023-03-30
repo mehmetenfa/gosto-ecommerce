@@ -6,15 +6,13 @@ export const ADD = (item) => {
     payload: item,
   };
 };
-
 export const DELETE = (id) => {
   return {
     type: REMOVE,
     payload: id,
   };
 };
-
-export const REMOVE_ITEM = (item) => {
+export const REMOVE_INT = (item) => {
   return {
     type: REMOVE_ITEM,
     payload: item,

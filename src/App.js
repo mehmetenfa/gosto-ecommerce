@@ -1,10 +1,15 @@
+import React from "react";
+import { Pages } from "./components/pages/Pages";
+import "./style/main.scss";
+import { Provider } from "react-redux";
+import store from "./controller/store";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-     hello
-    </div>
+    <>
+      <Provider>
+        <Pages />
+      </Provider>
+    </>
   );
-}
-
-export default App;
+};

@@ -4,7 +4,7 @@ import "./style/main.scss";
 import { Provider } from "react-redux";
 import store from "./controller/store";
 
-export const App = () => {
+const App = () => {
   return (
     <>
       <Provider store={store}>
@@ -13,3 +13,15 @@ export const App = () => {
     </>
   );
 };
+
+export default App
+
+// import React from 'react'
+
+// const App = () => {
+//   return (
+//     <div>App</div>
+//   )
+// }
+
+// export default App

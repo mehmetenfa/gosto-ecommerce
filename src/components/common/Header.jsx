@@ -40,7 +40,7 @@ export const Header = () => {
     dispatch(DELETE(id));
   };
 
-  // total price
+  // total prcie
   const [price, setPrice] = useState(0);
   console.log(price);
 
@@ -54,12 +54,11 @@ export const Header = () => {
 
   useEffect(() => {
     totals();
-  }, []);
+  }, [totals]);
 
   const handleCloses = () => {
     setCartList(null);
   };
-
   return (
     <>
       <header className="header">
@@ -79,9 +78,79 @@ export const Header = () => {
                 <img src={logo} alt="logo" />
               </Link>
             </div>
+            <div className="center">
+              <ul className={mobile ? "mobile-nav" : "menu"}>
+                {navlist.map((nav, i) => (
+                  <li key={i}>
+                    <Link to={nav.path}>{nav.text}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
+          <div className="right">
+            <div className="right_search">
+              <input type="text" placeholder="Search Products..." />
+              <BiSearch className="serachIcon heIcon" />
+            </div>
+            <div className="right_user">
+              <RiUser3Line className="userIcon heIcon" />
+              <AiOutlineHeart className="userIcon heIcon" />
+            </div>
+            <div className="right_card">
+              <button className="button" onClick={() => setCartList(!cartList)}>
+                <BsBagCheck className="shop heIcon" />
+                MY CART<span> ({getdata.length})</span>
+              </button>
+              <div className={cartList ? "showCart" : "hideCart"}>
+                {getdata.length ? (
+                  <section className="details">
+                    <div className="details_title">
+                      <h3>Photo</h3>
+                      <p>Product Name</p>
+                    </div>
+                    {getdata.map((e) => (
+                      <div className="details_content">
+                        <div className="details_content_img">
+                          <Link to={`/cart/${e.id}`} onClick={handleCloses}>
+                            <img src={e.cover} alt="" />
+                          </Link>
+                        </div>
+                        <div className="details_content_detail">
+                          <div className="details_content_detail_price">
+                            <p>{e.title.slice(0, 20)}...</p>
+                            <p>Price : ${e.price}</p>
+                            <p>Quantity : {e.qty}</p>
+                          </div>
+                        </div>
+                        <div className="details_content_detail_icon">
+                          <i onClick={() => delet(e.id)}>
+                            <AiOutlineDelete />
+                          </i>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="details_total">
+                      <h4>Total : ${price}</h4>
+                    </div>
+                  </section>
+                ) : (
+                  <div className="empty">
+                    <p>Your cart is empty</p>
+                    <img src={cartimg} alt="" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </header>
     </>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    amount: state.amount,
+  };
+};
+connect(mapStateToProps)(Header);

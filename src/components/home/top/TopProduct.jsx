@@ -1,9 +1,7 @@
 import React from 'react'
 
-const TopProduct = () => {
+export const TopProduct = () => {
   return (
     <div>TopProduct</div>
   )
 }
-
-export default TopProduct

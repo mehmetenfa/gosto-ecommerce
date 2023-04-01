@@ -1,9 +1,7 @@
 import React from 'react'
 
-const Heading = () => {
+export const Heading = () => {
   return (
     <div>Heading</div>
   )
 }
-
-export default Heading

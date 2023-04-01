@@ -1,9 +1,7 @@
 import React from 'react'
 
-const Banner = () => {
+export const Banner = () => {
   return (
     <div>Banner</div>
   )
 }
-
-export default Banner

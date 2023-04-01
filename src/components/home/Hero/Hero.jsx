@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { products } from "../../assets/data/data";
-import { SearchItems } from "./SearchItem";
+import { SearchItem } from "./SearchItem";
 
 export const Hero = () => {
   // search
@@ -45,7 +45,7 @@ export const Hero = () => {
               <BiSearch className="serachIcon heIcon" />
             </button>
           </div>
-          <SearchItems products={products} value={value} onSearch={onSearch} />
+          <SearchItem products={products} value={value} onSearch={onSearch} />
           <p>Examples: Mockup, PSD, Theme Design, Image…</p>
         </div>
       </section>

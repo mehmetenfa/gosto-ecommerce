@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiShoppingBag, FiSearch } from "react-icons/fi";
 import { AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ADD } from "../../../controller/action";
 

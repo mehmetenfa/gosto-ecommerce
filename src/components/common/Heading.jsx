@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
 
-export const Heading = () => {
+export const Heading = ({ title, desc }) => {
   return (
-    <div>Heading</div>
-  )
-}
+    <>
+      <div className="heading">
+        <h2>{title}</h2>
+        <p>{desc}</p>
+      </div>
+    </>
+  );
+};
